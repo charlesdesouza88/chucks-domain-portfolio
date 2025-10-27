@@ -1,0 +1,42 @@
+{
+  "name": "chucks-domain-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website showcasing three professional personas: The Musician, The Programmer, and The Chef",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8082",
+    "dev": "python3 -m http.server 8082",
+    "serve": "python3 -m http.server 8082",
+    "build": "echo 'No build process needed for static HTML'",
+    "test": "echo 'No tests specified'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charlesdesouza88/chucks-domain-portfolio.git"
+  },
+  "keywords": [
+    "portfolio",
+    "personal-website",
+    "musician",
+    "programmer",
+    "chef",
+    "responsive-design",
+    "html5",
+    "css3",
+    "javascript",
+    "static-site"
+  ],
+  "author": "Charles de Souza <charles@charlesdesouza.tech>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charlesdesouza88/chucks-domain-portfolio/issues"
+  },
+  "homepage": "https://github.com/charlesdesouza88/chucks-domain-portfolio#readme",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "devDependencies": {},
+  "dependencies": {}
+}

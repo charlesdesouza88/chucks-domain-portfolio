@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chef - Chuck's Domain</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .hero-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            width: 300px;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&h=400') center/cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .hero-content {
+            flex: 1;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 10px;
+        }
+
+        .text-content {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .subsection-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        .experience-card {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 4px solid #f39c12;
+        }
+
+        .experience-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            border-left: 4px solid #f39c12;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(243, 156, 18, 0.2);
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .instagram-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .instagram-item {
+            aspect-ratio: 1;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .instagram-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .highlight-quote {
+            background: linear-gradient(145deg, #fef9e7, #fdf2d3);
+            border-left: 4px solid #f39c12;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        .cta-section {
+            background: linear-gradient(145deg, #f39c12, #e67e22);
+            color: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #f39c12;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .footer {
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .instagram-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .back-link {
+                position: static;
+                display: inline-block;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Domain</a>
+
+        <header class="header">
+            <div class="hero-section">
+                <div class="hero-image"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">The Chef</h1>
+                    <p class="hero-subtitle">
+                        Executive Chef & Operations Strategist<br>
+                        Crafting exceptional culinary experiences with precision and creativity
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="section">
+                <h2 class="section-title">About me</h2>
+                <div class="text-content">
+                    <p>With more than two decades of culinary experience, I have built my career as both a chef and a leader, 
+                    working in diverse kitchens and overseeing operations at high-volume establishments. As an Executive Chef, 
+                    I balance creativity with precision—designing menus that highlight fresh, seasonal ingredients while ensuring 
+                    every plate meets the highest standard of quality.</p>
+                </div>
+
+                <div class="highlight-quote">
+                    "Cooking is not just about feeding people—it's about creating moments, memories, 
+                    and connections that bring communities together around the table."
+                </div>
+
+                <div class="text-content">
+                    <p>My work goes beyond cooking. I manage teams, streamline kitchen operations, and develop systems that bring 
+                    efficiency to the fast-paced world of food service. I've created tools to track inventory, calculate costs, 
+                    and improve workflow—blending my culinary expertise with technical problem-solving.</p>
+                </div>
+
+                <div class="text-content">
+                    <p>At the heart of it all, my passion remains the same: crafting food experiences that bring people together. 
+                    Whether leading a team through a busy service, developing new recipes, or organizing large-scale events, 
+                    I approach each challenge with discipline, creativity, and a commitment to excellence.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Experience</h2>
+                
+                <div class="experience-card">
+                    <h3 class="experience-title">Executive Chef & Operations Strategist</h3>
+                    <p class="text-content">
+                        20+ years of culinary leadership spanning fine dining, high-volume operations, and event catering. 
+                        Expert in menu development, cost management, and team leadership.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&h=200');"></div>
+                        <h3 class="project-title">Fine Dining Excellence</h3>
+                        <p class="project-description">
+                            Developing sophisticated menus and maintaining exceptional quality standards in upscale dining environments.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1602253057119-44d745d9b860?auto=format&fit=crop&w=400&h=200');"></div>
+                        <h3 class="project-title">Team Leadership</h3>
+                        <p class="project-description">
+                            Building and mentoring high-performance kitchen teams while maintaining operational excellence during peak service.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Projects section</h2>
+                <div class="text-content">
+                    <p>Provide a short summary of your recent projects, highlighting the most important things.</p>
+                </div>
+                
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3 class="project-title">Kitchen Manager</h3>
+                        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1516739089214-59baa011fdb9?auto=format&fit=crop&w=400&h=200');"></div>
+                        <p class="project-description">
+                            Welcome to the Yacht Club Kitchen Management app! This tool helps you calculate the cost of your menu items 
+                            and determine appropriate pricing.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3 class="project-title">Menu Innovation</h3>
+                        <p class="project-description">
+                            This project aims to develop innovative culinary concepts that blend traditional techniques with modern presentation.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Our Instagram</h2>
+                <div class="instagram-gallery">
+                    <div class="instagram-item" style="background-image: url('https://cdn.zyrosite.com/cdn-builder-placeholders/instagram/workstation.jpg');"></div>
+                    <div class="instagram-item" style="background-image: url('https://cdn.zyrosite.com/cdn-builder-placeholders/instagram/waterfall-between-rocks.jpg');"></div>
+                    <div class="instagram-item" style="background-image: url('https://cdn.zyrosite.com/cdn-builder-placeholders/instagram/trees-with-snow.png');"></div>
+                    <div class="instagram-item" style="background-image: url('https://cdn.zyrosite.com/cdn-builder-placeholders/instagram/tree-buds.jpg');"></div>
+                </div>
+            </section>
+
+            <div class="cta-section">
+                <h2 class="cta-title">Ready to Taste Excellence?</h2>
+                <p class="cta-subtitle">Let's create unforgettable culinary experiences together</p>
+                <a href="https://www.instagram.com/gurugizmo/" class="cta-button" target="_blank" rel="noopener">View My Kitchen</a>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-brand">Chuck's Domain</div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/gurugizmo/" class="social-link" target="_blank" rel="noopener">📷</a>
+                <a href="https://www.linkedin.com/in/charlesdesouza88" class="social-link" target="_blank" rel="noopener">💼</a>
+                <a href="https://github.com/charlesdesouza88" class="social-link" target="_blank" rel="noopener">🐙</a>
+            </div>
+            <p>Showcasing my work in the culinary industry.</p>
+            <p style="margin-top: 20px; opacity: 0.8;">© 2025. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
